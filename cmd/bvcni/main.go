@@ -5,7 +5,7 @@ import (
 	"github.com/containernetworking/cni/pkg/version"
 	bv "github.com/containernetworking/plugins/pkg/utils/buildversion"
 	"github.com/royroyee/bvcni/pkg/log"
-	"github.com/royroyee/bvcni/plugin/cmd"
+	"github.com/royroyee/bvcni/plugin"
 	"runtime"
 )
 
@@ -26,5 +26,5 @@ func main() {
 	// Init Logger
 	log.InitLogger(logFile)
 
-	skel.PluginMain(cmd.CmdAdd, cmd.CmdCheck, cmd.CmdDel, version.All, bv.BuildString(pluginName))
+	skel.PluginMain(plugin.CmdAdd, plugin.CmdCheck, plugin.CmdDel, version.All, bv.BuildString(pluginName))
 }

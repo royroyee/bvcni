@@ -75,7 +75,7 @@ spec:
       serviceAccountName: bvcni
       containers:
         - name: bvcnid
-          image: royroyee/bvcnid:latest
+          image: royroyee/bvcnid:1.2
           imagePullPolicy: IfNotPresent
           resources:
             requests:
