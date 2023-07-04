@@ -2,12 +2,11 @@
 A Simple CNI plugin based on Linux bridge and VXLAN for Kubernetes
 
 ## Introduction
-**bvcni** is a Container Networking Interface (CNI) plugin designed for use in Kubernetes clusters. The plugin facilitates container networking management by leveraging a combination of Bridge and VXLAN technologies.
+**bvcni** is a Container Networking Interface (CNI) plugin, designed for Kubernetes clusters. It simplifies container networking management by utilizing a combination of **Bridge** and **VXLAN** 
 
 
 ## Architecture
-bvcni employs Linux-based bridges and VXLAN for its architecture, mimicking the Flannel VXLAN mode approach.
-
+bvcni uses Linux-based bridges and VXLAN in its architecture, emulating the approach of Flannel's **VXLAN** mode
 
 ![bvcni architecture.png](img%2Fbvcni%20architecture.png)
 
@@ -31,7 +30,7 @@ Apply the following command when no other CNI is installed:
 kubectl apply -f https://raw.githubusercontent.com/royroyee/bvcni/new_branch/bvcni.yaml
 ```
 
-> Note Run the command when no other CNI is installed.
+> **Note : Run the command when no other CNI is installed.**
 
 Prior to the CNI installation, the node will be in the NOT READY state. Once applied, a DaemonSet named `bvcnid` will be deployed to each node. The CNI configuration file will be generated in the `/etc/cni/net.d` directory, and the plugin binary files will be stored in `/opt/cni/bin`. 
 A temporary file, `tmp/reserved_ips`, is also created for IP allocation.
@@ -82,7 +81,7 @@ PING 8.8.8.8 (8.8.8.8): 56 data bytes
 
 ### Same node container network connection
 ```
-hwan@k8s-master:~$ kubectl exec -it alpine1 -- ping 10.244.2.4
+royroyee@k8s-master:~$ kubectl exec -it alpine1 -- ping 10.244.2.4
 PING 10.244.2.4 (10.244.2.4): 56 data bytes
 64 bytes from 10.244.2.4: seq=0 ttl=64 time=0.067 ms
 64 bytes from 10.244.2.4: seq=1 ttl=64 time=0.097 ms
